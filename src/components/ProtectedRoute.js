@@ -6,10 +6,11 @@ import { auth } from "../firebase";
 export default function ProtectedRoute() {
   const navigate = useNavigate();
   const user = auth?.currentUser;
-
   useEffect(() => {
     if (!user) {
       navigate("/admin");
+    } else {
+      navigate("/dashboard");
     }
   }, [user, navigate]);
 

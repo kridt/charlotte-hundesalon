@@ -24,7 +24,9 @@ export default function Admin() {
 
     console.log(email, password);
   }
-  console.log(loading);
+
+  console.log(auth.currentUser);
+
   return (
     <div>
       <h1>Admin</h1>

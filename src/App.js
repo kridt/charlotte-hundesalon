@@ -1,4 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Products from "./components/Products";
 import ProtectedRoute from "./components/ProtectedRoute";
 import About from "./pages/About";
 import Admin from "./pages/Admin";
@@ -16,8 +17,8 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/service" element={<Service />} />
-          <Route path="/admin" element={<Admin />} />
           <Route element={<ProtectedRoute />}>
+            <Route path="/admin" element={<Admin />} />
             <Route path="/dashboard" element={<Dashboard />} />
           </Route>
         </Routes>
