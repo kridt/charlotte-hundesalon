@@ -9,24 +9,26 @@ export default function Navbar() {
         <div className="logo">
           <h2>logo</h2>
         </div>
-        <div className="pawPart">
-          <h1>Charlottes Hundesalon</h1>
-          <div className="paws">
-            <Paws />
+        <Link style={{ color: "black", textDecoration: "none" }} to={"/"}>
+          <div className="pawPart">
+            <h1>Charlottes Hundesalon</h1>
+            <div className="paws">
+              <Paws />
+            </div>
           </div>
-        </div>
+        </Link>
         <ul>
           <li>
             <Link to={"/"}>Start</Link>
           </li>
           <li>
-            <Link to={"/"}>Om os</Link>
+            <Link to={"/about"}>Om os</Link>
           </li>
           <li>
-            <Link to={"/"}>Kontakt</Link>
+            <Link to={"/contact"}>Kontakt</Link>
           </li>
           <li>
-            <Link to={"/"}>Service</Link>
+            <Link to={"/service"}>Service</Link>
           </li>
         </ul>
       </nav>

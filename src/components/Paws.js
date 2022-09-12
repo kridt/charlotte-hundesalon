@@ -11,7 +11,10 @@ export default function Paws() {
           paddingTop: "2em",
         }}
       >
-        <img src="https://img.icons8.com/external-those-icons-fill-those-icons/96/000000/external-Paw-pets-and-accessories-those-icons-fill-those-icons.png" />
+        <img
+          alt="paw"
+          src="https://img.icons8.com/external-those-icons-fill-those-icons/96/000000/external-Paw-pets-and-accessories-those-icons-fill-those-icons.png"
+        />
       </div>
       <div
         style={{
@@ -20,7 +23,10 @@ export default function Paws() {
           right: "20px",
         }}
       >
-        <img src="https://img.icons8.com/external-those-icons-fill-those-icons/96/000000/external-Paw-pets-and-accessories-those-icons-fill-those-icons.png" />
+        <img
+          alt="paw"
+          src="https://img.icons8.com/external-those-icons-fill-those-icons/96/000000/external-Paw-pets-and-accessories-those-icons-fill-those-icons.png"
+        />
       </div>
     </div>
   );
