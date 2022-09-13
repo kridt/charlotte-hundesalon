@@ -1,7 +1,7 @@
 import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import ProductSum from "../components/ProductSum";
 import { auth, database } from "../firebase";
 
@@ -32,8 +32,6 @@ export default function Dashboard() {
       .then((e) => setAllProducts(e.docs));
   }, []);
 
-  console.log(allProducts);
-
   function signOut() {
     auth.signOut();
     navigate("/admin");
@@ -52,13 +50,11 @@ export default function Dashboard() {
       <br />
       <br />
       <br />
-      <button onClick={() => dataBase()}>create random product</button>
+      <Link to={"/addProduct"}>Tilføj et produkt</Link>
       <h3>Der er i alt {allProducts.length} produkter på siden</h3>
       <div>
         {allProducts?.map((e) => {
-          console.log(e.data());
-
-          return <ProductSum productId={e.id} />;
+          return <ProductSum key={e.id} productId={e.id} />;
         })}
       </div>
     </div>

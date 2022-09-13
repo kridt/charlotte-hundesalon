@@ -3,6 +3,7 @@ import Products from "./components/Products";
 import ProtectedRoute from "./components/ProtectedRoute";
 import { AuthProvider } from "./context/AuthContext";
 import About from "./pages/About";
+import AddProduct from "./pages/AddProduct";
 import Admin from "./pages/Admin";
 import Contact from "./pages/Contact";
 import Dashboard from "./pages/Dashboard";
@@ -22,6 +23,7 @@ function App() {
             <Route element={<ProtectedRoute />}>
               <Route path="/admin" element={<Admin />} />
               <Route path="/dashboard" element={<Dashboard />} />
+              <Route path="/addProduct" element={<AddProduct />} />
             </Route>
           </Routes>
         </AuthProvider>

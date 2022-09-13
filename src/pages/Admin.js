@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
-import { auth } from "../firebase";
+import { auth, database } from "../firebase";
 
 export default function Admin() {
   const [showHide, setShowHide] = useState(false);
@@ -21,7 +21,15 @@ export default function Admin() {
 
     try {
       await login(email, password);
-      history("/dashboard");
+      database
+        .collection("logins")
+        .add({
+          user: email,
+          time: new Date(),
+        })
+        .then(() => {
+          history("/dashboard");
+        });
     } catch (error) {}
 
     console.log(email, password);

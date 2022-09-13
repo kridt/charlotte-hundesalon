@@ -9,8 +9,6 @@ export default function ProtectedRoute() {
   useEffect(() => {
     if (!user) {
       navigate("/admin");
-    } else {
-      navigate("/dashboard");
     }
   }, [user, navigate]);
 

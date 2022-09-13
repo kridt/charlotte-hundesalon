@@ -8,7 +8,7 @@ export default function ProductSum({ productId }) {
   const uid = productId;
   const [product, setProduct] = useState({});
   const navigate = useNavigate();
-  console.log(uid);
+  const [loading, setLoading] = useState(false);
 
   function deleteProduct() {
     window.confirm(`Er du sikker på du vil slette` + product.name)
@@ -17,20 +17,23 @@ export default function ProductSum({ productId }) {
           .doc(uid)
           .delete()
           .then((e) => {
-            console.log(e);
             window.location.reload();
           })
       : console.log(false);
   }
 
   useEffect(() => {
+    setLoading(true);
     database
       .collection("products")
       .doc(uid)
       .get()
       .then((e) => {
         setProduct(e.data());
+        setLoading(false);
+        console.log(e.data());
       });
+    setLoading(false);
   }, []);
 
   return (
