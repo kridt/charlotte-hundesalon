@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
 import { auth } from "../firebase";
 
 export default function Admin() {
@@ -8,19 +9,20 @@ export default function Admin() {
   const [loading, setLoading] = useState(false);
   const history = useNavigate();
 
-  function logIndForm(e) {
+  const { currentUser, login } = useAuth();
+
+  console.log(currentUser);
+
+  async function logIndForm(e) {
     e.preventDefault();
 
     const email = e.target.email.value;
     const password = e.target.password.value;
 
-    setLoading(true);
-    auth.signInWithEmailAndPassword(email, password).then((data) => {
-      console.log(data);
-      setLoading(false);
+    try {
+      await login(email, password);
       history("/dashboard");
-    });
-    setLoading(false);
+    } catch (error) {}
 
     console.log(email, password);
   }

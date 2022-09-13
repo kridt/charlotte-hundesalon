@@ -14,13 +14,14 @@ export default function Dashboard() {
     database
       .collection("products")
       .add({
-        name: "product 3",
+        name: "product " + Math.floor(Math.random() * 99),
         price: 512,
         description: "123123123 323123 bla",
-        id: 312135,
+        id: Math.floor(100000 + Math.random() * 900000),
       })
       .then((e) => {
         console.log(e);
+        window.location.reload();
       });
   }
 
@@ -51,7 +52,7 @@ export default function Dashboard() {
       <br />
       <br />
       <br />
-      <button onClick={() => dataBase()}>create</button>
+      <button onClick={() => dataBase()}>create random product</button>
       <h3>Der er i alt {allProducts.length} produkter på siden</h3>
       <div>
         {allProducts?.map((e) => {

@@ -1,6 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Products from "./components/Products";
 import ProtectedRoute from "./components/ProtectedRoute";
+import { AuthProvider } from "./context/AuthContext";
 import About from "./pages/About";
 import Admin from "./pages/Admin";
 import Contact from "./pages/Contact";
@@ -12,16 +13,18 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<StartSide />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/service" element={<Service />} />
-          <Route element={<ProtectedRoute />}>
-            <Route path="/admin" element={<Admin />} />
-            <Route path="/dashboard" element={<Dashboard />} />
-          </Route>
-        </Routes>
+        <AuthProvider>
+          <Routes>
+            <Route path="/" element={<StartSide />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/service" element={<Service />} />
+            <Route element={<ProtectedRoute />}>
+              <Route path="/admin" element={<Admin />} />
+              <Route path="/dashboard" element={<Dashboard />} />
+            </Route>
+          </Routes>
+        </AuthProvider>
       </BrowserRouter>
     </div>
   );

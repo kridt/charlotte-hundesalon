@@ -11,15 +11,16 @@ export default function ProductSum({ productId }) {
   console.log(uid);
 
   function deleteProduct() {
-    database
-      .collection("products")
-      .doc(uid)
-      .delete()
-      .then((e) => {
-        console.log(e);
-      });
-
-    navigate("/dashboard");
+    window.confirm(`Er du sikker på du vil slette` + product.name)
+      ? database
+          .collection("products")
+          .doc(uid)
+          .delete()
+          .then((e) => {
+            console.log(e);
+            window.location.reload();
+          })
+      : console.log(false);
   }
 
   useEffect(() => {
