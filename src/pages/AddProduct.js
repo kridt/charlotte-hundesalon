@@ -19,6 +19,10 @@ export default function AddProduct() {
         description: desc,
         lager: lager,
         user: auth.currentUser.email,
+        img: {
+          bigImg: "https://via.placeholder.com/1000",
+          small: "https://via.placeholder.com/200",
+        },
       })
       .then(() => {
         navigate("/dashboard");

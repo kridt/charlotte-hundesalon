@@ -10,21 +10,6 @@ export default function Dashboard() {
   const navigate = useNavigate();
   const [allProducts, setAllProducts] = useState([]);
 
-  function dataBase() {
-    database
-      .collection("products")
-      .add({
-        name: "product " + Math.floor(Math.random() * 99),
-        price: 512,
-        description: "123123123 323123 bla",
-        id: Math.floor(100000 + Math.random() * 900000),
-      })
-      .then((e) => {
-        console.log(e);
-        window.location.reload();
-      });
-  }
-
   useEffect(() => {
     database
       .collection("products")

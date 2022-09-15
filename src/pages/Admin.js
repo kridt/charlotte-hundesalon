@@ -6,7 +6,6 @@ import { auth, database } from "../firebase";
 
 export default function Admin() {
   const [showHide, setShowHide] = useState(false);
-  const [loading, setLoading] = useState(false);
   const history = useNavigate();
 
   const { currentUser, login } = useAuth();
